@@ -7,25 +7,26 @@ use App\Models\Contact;
 
 class ContactForm extends Component
 {
-    public $name, $email, $message;
+    public $name;
+    public $email;
+    public $phone;
+    public $institution;
+
+    protected $rules = [
+        'name' => 'required|min:3',
+        'email' => 'required|email',
+        'phone' => 'required|min:10',
+        'institution' => 'required|min:3',
+    ];
 
     public function submit()
     {
-        $this->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|email',
-            'message' => 'required|max:1000',
-        ]);
-
-        Contact::create([
-            'name' => $this->name,
-            'email' => $this->email,
-            'message' => $this->message,
-        ]);
-
-        $this->reset();
-
-        session()->flash('message', 'Pesan berhasil dikirim!');
+        $validatedData = $this->validate();
+        Contact::create($validatedData);
+        
+        session()->flash('message', 'Contact berhasil ditambahkan.');
+        
+        $this->reset(['name', 'email', 'phone', 'institution']);
     }
 
     public function render()

@@ -32,6 +32,11 @@
             <div class="bg-white rounded-3xl shadow-xl p-1">
                 <livewire:tampil-data />
             </div>
+
+            <!-- Data Display Section - Below Forms -->
+            <div class="bg-white rounded-3xl shadow-xl p-1">
+                <livewire:tampil-contact />
+            </div>
         </main>
     </div>
 

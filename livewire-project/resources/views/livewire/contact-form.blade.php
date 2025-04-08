@@ -2,8 +2,8 @@
     <div class="bg-white rounded-3xl shadow-lg p-8 max-w-md mx-auto">
         <!-- Header Section -->
         <div class="text-center mb-8">
-            <h2 class="text-2xl font-bold text-gray-800">Contact Form</h2>
-            <p class="text-gray-500 text-sm">Silahkan isi form kontak dibawah ini</p>
+            <h2 class="text-2xl font-bold text-gray-800">Form Contact</h2>
+            <p class="text-gray-500 text-sm">Silahkan isi form contact dibawah ini</p>
         </div>
 
         <!-- Form Section -->
@@ -38,22 +38,36 @@
             </div>
 
             <div class="relative">
-                <div class="absolute top-3 left-3 flex items-start pointer-events-none">
+                <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-400" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H6z" clip-rule="evenodd" />
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                     </svg>
                 </div>
-                <textarea id="message" wire:model="message" rows="4" 
-                    placeholder="Masukkan pesan anda"
-                    class="pl-10 w-full py-3 rounded-xl border-gray-200 bg-gray-50 focus:border-orange-500 focus:ring-orange-500"></textarea>
-                @error('message')
+                <input type="text" id="phone" wire:model="phone" 
+                    placeholder="Masukkan nomor telepon"
+                    class="pl-10 w-full py-3 rounded-xl border-gray-200 bg-gray-50 focus:border-orange-500 focus:ring-orange-500">
+                @error('phone')
+                    <div class="mt-1 text-sm text-red-600">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="relative">
+                <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 01-1.581.814l-4.419-2.944-4.419 2.944A1 1 0 014 16V4zm5 0a1 1 0 00-1 1v6.5a.5.5 0 00.765.424L12 9.348l3.235 2.576A.5.5 0 0016 11.5V5a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <input type="text" id="institution" wire:model="institution" 
+                    placeholder="Masukkan nama instansi"
+                    class="pl-10 w-full py-3 rounded-xl border-gray-200 bg-gray-50 focus:border-orange-500 focus:ring-orange-500">
+                @error('institution')
                     <div class="mt-1 text-sm text-red-600">{{ $message }}</div>
                 @enderror
             </div>
 
             <button type="submit" 
                 class="w-full py-3 px-4 bg-orange-400 hover:bg-orange-500 text-white font-medium rounded-xl transition duration-200">
-                Kirim Pesan
+                Kirim Contact
             </button>
         </form>
 
